@@ -1,11 +1,26 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserAuth } from '../context/AuthContext';
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye'
 
 const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { user, signUp } = UserAuth();
+  const [type, setType] = useState('password');
+  const [icon, setIcon] = useState(eyeOff);
+
+  const handleToggle = () => {
+    if (type==='password'){
+       setIcon(eye);
+       setType('text')
+    } else {
+       setIcon(eyeOff)
+       setType('password')
+    }
+ }
+    const { user, signUp } = UserAuth();
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
@@ -42,13 +57,19 @@ const Signup = () => {
                   placeholder='Email'
                   autoComplete='email'
                 />
+                <div className='flex'>
                 <input
                   onChange={(e) => setPassword(e.target.value)}
-                  className='p-3 my-2 bg-gray-700 rouded'
-                  type='password'
+                  className='p-3 my-2 bg-gray-700 rouded w-full'
+                  type={type}
+                  name="password"
+                  value={password}
                   placeholder='Password'
                   autoComplete='current-password'
                 />
+                <span className='flex justify-around items-center cursor-pointer' onClick={handleToggle}> <Icon class="absolute mr-10" icon={icon} size={25}/></span>
+                </div>
+                
                 <button className='bg-red-600 py-3 my-6 rounded font-bold'>
                   Sign Up
                 </button>

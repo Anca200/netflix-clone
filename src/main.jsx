@@ -6,6 +6,9 @@ import Navbar from './components/Navbar.jsx';
 import Home from "./pages/Home.jsx";
 import SignUp from "./pages/SignUp.jsx"
 import Login from './pages/Login.jsx';
+import { AuthContextProvider } from './context/AuthContext.jsx';
+import Account from "./pages/Account.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx"
 
 const router = createBrowserRouter([
   {
@@ -23,14 +26,22 @@ const router = createBrowserRouter([
       {
         path:"/sign",
         element: <SignUp/>
+      },
+     {
+        path: "/account",
+        element:
+        <ProtectedRoute>
+        <Account/>
+        </ProtectedRoute>   
       }
     ]
   }
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
 <React.StrictMode>
+<AuthContextProvider>
 <RouterProvider router={router}>
 </RouterProvider>
+</AuthContextProvider>
 </React.StrictMode>
-
 )

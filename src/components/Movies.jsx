@@ -6,7 +6,7 @@ import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 
 const Movies = ({ item }) => {
   const [like, setLike] = useState(false);
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(true);
   const { user } = UserAuth();
 
   const movieID = doc(db, 'users', `${user?.email}`);

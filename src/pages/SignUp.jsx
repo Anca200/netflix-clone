@@ -78,7 +78,7 @@ const Signup = () => {
                   <span className='text-gray-600'>
                     Already subscribed to Netflix?
                   </span>{' '}
-                  <Link to='/login'>Log In</Link>
+                  <Link to='/log'>Log In</Link>
                 </p>
               </form>
             </div>

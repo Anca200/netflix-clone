@@ -8,7 +8,7 @@ import SignUp from "./pages/SignUp.jsx"
 import Login from './pages/Login.jsx';
 import { AuthContextProvider } from './context/AuthContext.jsx';
 import Account from "./pages/Account.jsx";
-
+import ProtectedRoute from "./components/ProtectedRoute.jsx"
 
 const router = createBrowserRouter([
   {
@@ -30,9 +30,9 @@ const router = createBrowserRouter([
      {
         path: "/account",
         element:
-
+        <ProtectedRoute>
         <Account/>
-
+        </ProtectedRoute>   
       }
     ]
   }

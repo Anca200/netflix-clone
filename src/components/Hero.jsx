@@ -31,8 +31,6 @@ const Hero = () => {
         setMovies(res.data.results)
      })
     }, [])
-    console.log(movie)
-
 
   return (
     <>

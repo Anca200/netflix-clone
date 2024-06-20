@@ -30,9 +30,9 @@ const router = createBrowserRouter([
      {
         path: "/account",
         element:
-
+        <ProtectedRoute>
         <Account/>
-
+        </ProtectedRoute>   
       }
     ]
   }

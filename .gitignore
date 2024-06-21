@@ -23,5 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 .env
+.env.example
+.env.local
+.env.staging
 # Local Netlify folder
 .netlify
